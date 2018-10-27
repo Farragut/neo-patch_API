@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 
 
 //settings
-app.set('PORT', process.env.PORT);
+app.set('PORT', process.env.PORT || 3000);
 
 //middlewares
 app.use(morgan('dev'));
@@ -16,5 +16,5 @@ require('./routes/userRoutes')(app);
 
 //static files
 app.listen(app.get('PORT'), () => {
-    console.log('server on port 3000');
+    console.log(`server on port ${app.get('PORT')}`);
 });

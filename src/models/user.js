@@ -4,7 +4,8 @@ connection = mysql.createConnection({
     host: 'www.neo-patch.com',
     user: 'neopatch_inv_app',
     password: 'Semperfi1',
-    database: 'neopatch_inventario'
+    database: 'neopatch_inventario',
+    port: 3306
 });
 
 let userModel = {};
