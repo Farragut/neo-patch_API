@@ -1,5 +1,5 @@
 const User = require('../models/user');
-
+const bcrypt = require('bcrypt');
 
 module.exports = function(app) {
     app.get('/users', (req, res) => {
@@ -28,7 +28,7 @@ module.exports = function(app) {
             if (data && data.insertId) {
                 res.json({
                     success: true,
-                    msg: 'Usario Insertado',
+                    msg: 'Usuario Insertado',
                     data: data
                 })
             } else {
