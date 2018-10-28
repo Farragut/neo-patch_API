@@ -25,6 +25,24 @@ userModel.getUsers = (callback) => {
     }
 };
 
+userModel.getSelectedUser = (userData, callback) => {
+    if (connection) {
+        const sql = `
+            SELECT password FROM users WHERE
+            username = ${connection.escape(userData.username)}
+        `
+
+        connection.query(sql, (err, rows) => {
+            console.log(sql);
+            if (err) {
+                throw err;
+            } else {
+                callback(null, rows);
+            }
+        })
+    }
+};
+
 userModel.insertUser = (userData, callback) => {
     if (connection) {
         connection.query(
